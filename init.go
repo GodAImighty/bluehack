@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"github.com/GodAlmighty/bluehack/read_ledger.go"
+	//"github.com/GodAlmighty/bluehack/read_ledger.go"
 )
 
 // SimpleChaincode example simple Chaincode implementation

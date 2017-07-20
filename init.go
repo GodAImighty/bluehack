@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
+	"github.com/GodAlmighty/bluehack/read_ledger.go"
 )
 
 // SimpleChaincode example simple Chaincode implementation
@@ -27,4 +28,16 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 	}
 
 	return nil, nil
+}
+
+func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
+	fmt.Println("query is running " + function)
+
+	// Handle different functions
+	if function == "read" {													//read a variable
+		return t.read(stub, args)
+	}
+	fmt.Println("query did not find func: " + function)						//error
+
+	return nil, errors.New("Received unknown function query")
 }
